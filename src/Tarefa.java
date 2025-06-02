@@ -10,10 +10,6 @@ public class Tarefa {
         return this.descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     @Override
     public String toString() {
 
