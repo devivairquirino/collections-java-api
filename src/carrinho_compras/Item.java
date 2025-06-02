@@ -1,3 +1,4 @@
+package carrinho_compras;
 public class Item {
     private String nome;
     private Double preco;
