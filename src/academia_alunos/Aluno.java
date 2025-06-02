@@ -45,3 +45,11 @@ class ComparatorPorPeso implements Comparator<Aluno>{
     }
     
 }
+class ComparatorPorVencimento implements Comparator<Aluno>{
+
+    @Override
+    public int compare(Aluno a1, Aluno a2) {
+        return a1.getVencimento().compareTo(a2.getVencimento());
+    }
+    
+}

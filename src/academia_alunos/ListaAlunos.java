@@ -21,6 +21,11 @@ public class ListaAlunos {
         Collections.sort(alunoPorPeso, new ComparatorPorPeso());
         return alunoPorPeso;
     }
+    public List<Aluno> ordenarPorVencimento(){
+        List<Aluno> alunoPorVencimento= new ArrayList<>(alunoList);
+        Collections.sort(alunoPorVencimento, new ComparatorPorVencimento());
+        return alunoPorVencimento;
+    }
     public static void main(String[] args) {
         ListaAlunos planoMensalList = new ListaAlunos();
 
@@ -35,7 +40,7 @@ public class ListaAlunos {
         planoMensalList.adicionarAluno("Isabela", 62.0, 1.63, LocalDate.of(2025, 6, 30));
         planoMensalList.adicionarAluno("João", 78.0, 1.75, LocalDate.of(2025, 7, 3));
 
-        System.out.println(planoMensalList.ordenarPorPeso());
+        System.out.println(planoMensalList.ordenarPorVencimento());
     }
 
 }
