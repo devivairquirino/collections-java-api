@@ -34,6 +34,7 @@ public class ListTarefas {
         novaLista.adicionarTarefa("Varrer");
         novaLista.adicionarTarefa("Estudar");
         novaLista.adicionarTarefa("Trabalhar");
+        
         novaLista.obterDescricoesTarefas();
 
         
