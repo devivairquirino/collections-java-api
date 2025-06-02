@@ -2,6 +2,7 @@ package academia_alunos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ListaAlunos {
@@ -15,10 +16,14 @@ public class ListaAlunos {
     public void adicionarAluno(String nome, Double peso, Double altura, LocalDate vencimento) {
         alunoList.add(new Aluno(nome, peso, altura, vencimento));
     }
-
+    public List<Aluno> ordenarPorPeso(){
+        List<Aluno> alunoPorPeso= new ArrayList<>(alunoList);
+        Collections.sort(alunoPorPeso, new ComparatorPorPeso());
+        return alunoPorPeso;
+    }
     public static void main(String[] args) {
         ListaAlunos planoMensalList = new ListaAlunos();
-        
+
         planoMensalList.adicionarAluno("Ana", 60.0, 1.65, LocalDate.of(2025, 7, 1));
         planoMensalList.adicionarAluno("Bruno", 80.0, 1.80, LocalDate.of(2025, 6, 15));
         planoMensalList.adicionarAluno("Carla", 55.0, 1.60, LocalDate.of(2025, 6, 10));
@@ -30,6 +35,7 @@ public class ListaAlunos {
         planoMensalList.adicionarAluno("Isabela", 62.0, 1.63, LocalDate.of(2025, 6, 30));
         planoMensalList.adicionarAluno("João", 78.0, 1.75, LocalDate.of(2025, 7, 3));
 
-        System.out.println(planoMensalList);
+        System.out.println(planoMensalList.ordenarPorPeso());
     }
+
 }

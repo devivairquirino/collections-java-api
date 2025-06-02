@@ -1,6 +1,7 @@
 package academia_alunos;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 
 public class Aluno {
     private String nome;
@@ -33,9 +34,14 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return nome;
+        return "\nAluno [nome= " + nome + ", peso= " + peso + ", altura= " + altura + ", vencimento= " + vencimento + "]\n";
     }
+}
+class ComparatorPorPeso implements Comparator<Aluno>{
 
-
+    @Override
+    public int compare(Aluno a1, Aluno a2) {
+        return Double.compare(a1.getPeso(), a2.getPeso());
+    }
     
 }
