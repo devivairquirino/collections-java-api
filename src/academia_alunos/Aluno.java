@@ -3,7 +3,7 @@ package academia_alunos;
 import java.time.LocalDate;
 import java.util.Comparator;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno>{
     private String nome;
     private Double peso;
     private Double altura;
@@ -35,6 +35,11 @@ public class Aluno {
     @Override
     public String toString() {
         return "\nAluno [nome= " + nome + ", peso= " + peso + ", altura= " + altura + ", vencimento= " + vencimento + "]\n";
+    }
+
+    @Override
+    public int compareTo(Aluno a) {
+        return this.nome.compareToIgnoreCase(a.nome);
     }
 }
 class ComparatorPorPeso implements Comparator<Aluno>{
