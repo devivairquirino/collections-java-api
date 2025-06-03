@@ -16,7 +16,22 @@ public class ListaAlunos {
     public void adicionarAluno(String nome, Double peso, Double altura, LocalDate vencimento) {
         alunoList.add(new Aluno(nome, peso, altura, vencimento));
     }
+    public void  removerAlunoPorNome(String nome){
+        List<Aluno> alunosRemoverList= new ArrayList<>();
 
+        for(Aluno a: alunoList){
+            if(a.getNome().equalsIgnoreCase(nome)){
+                alunosRemoverList.add(a);
+            }
+        }
+        alunoList.removeAll(alunosRemoverList);
+    }
+    public void exibirLista(){
+        System.out.println(alunoList);
+    }
+
+
+    // Ordenar
     public List<Aluno> ordenarPorNome() {
         List<Aluno> alunoPorNome = new ArrayList<>(alunoList);
         Collections.sort(alunoPorNome);
@@ -35,6 +50,7 @@ public class ListaAlunos {
         return alunoPorVencimento;
     }
 
+
     public static void main(String[] args) {
         ListaAlunos planoMensalList = new ListaAlunos();
 
@@ -49,7 +65,9 @@ public class ListaAlunos {
         planoMensalList.adicionarAluno("Henrique", 85.0, 1.82, LocalDate.of(2025, 7, 8));
         planoMensalList.adicionarAluno("Eduarda", 70.0, 1.70, LocalDate.of(2025, 6, 20));
 
-        System.out.println(planoMensalList.ordenarPorNome());
+        // System.out.println(planoMensalList.ordenarPorNome());
+        planoMensalList.removerAlunoPorNome("Felipe");
+        planoMensalList.exibirLista();    
     }
 
 }
