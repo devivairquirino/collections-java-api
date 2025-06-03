@@ -1,4 +1,4 @@
-package academia_alunos;
+package list.academia_alunos;
 
 import java.time.LocalDate;
 import java.util.Comparator;
