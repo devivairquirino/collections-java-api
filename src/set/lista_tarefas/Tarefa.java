@@ -44,7 +44,7 @@ public class Tarefa {
         if (descricao == null) {
             if (other.descricao != null)
                 return false;
-        } else if (!descricao.equals(other.descricao))
+        } else if (!descricao.equalsIgnoreCase(other.descricao))
             return false;
         return true;
     }
