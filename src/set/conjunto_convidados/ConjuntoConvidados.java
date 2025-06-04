@@ -1,4 +1,4 @@
-package set.operacoes_basicas;
+package set.conjunto_convidados;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,20 +11,28 @@ public class ConjuntoConvidados {
     }
 
     public void adicionarConvidado(String nome, int codigoConvite) {
-        convidadoSet.add(new Convidado(nome, codigoConvite));
+        Convidado novo = new Convidado(nome, codigoConvite);
+        if (convidadoSet.contains(novo)) {
+            System.out.println("Convidado com código " + codigoConvite + " já existe!");
+        } else {
+            convidadoSet.add(novo);
+        }
     }
-    public int contarConvidados(){
+
+    public int contarConvidados() {
         return convidadoSet.size();
     }
+
     public void exibirConvidados() {
         System.out.println(convidadoSet);
     }
-    public void removerConvidadoPorCodigoConvite(int codigoConvite){
-        Convidado convidadoRemover= null;
 
-        for(Convidado c: convidadoSet){
-            if(c.getCodigoConvite()==codigoConvite){
-                convidadoRemover=c;
+    public void removerConvidadoPorCodigoConvite(int codigoConvite) {
+        Convidado convidadoRemover = null;
+
+        for (Convidado c : convidadoSet) {
+            if (c.getCodigoConvite() == codigoConvite) {
+                convidadoRemover = c;
                 break;
             }
         }
@@ -33,7 +41,7 @@ public class ConjuntoConvidados {
 
     public static void main(String[] args) {
 
-        ConjuntoConvidados conjunto= new ConjuntoConvidados(null);
+        ConjuntoConvidados conjunto = new ConjuntoConvidados(null);
 
         conjunto.adicionarConvidado("Ana", 101);
         conjunto.adicionarConvidado("Bruno", 102);
