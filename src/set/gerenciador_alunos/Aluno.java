@@ -1,6 +1,8 @@
 package set.gerenciador_alunos;
 
-public class Aluno {
+import java.util.Comparator;
+
+public class Aluno implements Comparable<Aluno>{
 
     private String nome;
     private Long matricula;
@@ -26,7 +28,7 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno [nome=" + nome + ", matricula=" + matricula + ", nota=" + nota + "]";
+        return "\nAluno [nome=" + nome + ", matricula=" + matricula + ", nota=" + nota + "]\n";
     }
 
     @Override
@@ -54,5 +56,26 @@ public class Aluno {
         return true;
     }
 
+    @Override
+    public int compareTo(Aluno a) {
+        return nome.compareToIgnoreCase(a.getNome());
+    }
+
+    
+}
+
+class ComparatorPorNotasCrescente implements Comparator<Aluno>{
+
+    @Override
+    public int compare(Aluno a1, Aluno a2) {
+        return Double.compare(a1.getNota(), a2.getNota());
+    }
+}
+class ComparatorPorNotasDecrescente implements Comparator<Aluno>{
+
+    @Override
+    public int compare(Aluno a1, Aluno a2) {
+        return Double.compare(a2.getNota(), a1.getNota());
+    }
     
 }
